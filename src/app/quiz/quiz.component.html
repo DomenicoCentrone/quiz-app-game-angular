@@ -1,0 +1,16 @@
+<div *ngIf="!isFinished">
+  <h2>{{ currentQuestion.questionText }}</h2>
+  <button
+    *ngFor="let answer of currentQuestion.answers"
+    (click)="selectAnswer(answer)"
+  >
+    {{ answer.answerText }}
+  </button>
+</div>
+
+<div *ngIf="isFinished">
+  <h2>Your score: {{ score }}</h2>
+  <button (click)="currentIndex = 0; isFinished = false; score = 0">
+    Restart
+  </button>
+</div>
